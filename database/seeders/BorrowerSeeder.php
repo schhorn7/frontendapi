@@ -61,7 +61,6 @@ class BorrowerSeeder extends Seeder
 
             Loan::create([
                 'BorrowerID' => $borrower->id,
-                'request_id' => $loan_request->request_id,
                 'request_duration' => 30,
                 'request_reason'=> 'car repair',
                 'request_amount' => 1000,
