@@ -46,6 +46,14 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+         'borrower'=>[
+            'driver'=>'sanctum',
+            'provider'=>'borrowers'
+        ],
+        'lender'=> [
+            'driver'=>'sanctum',
+            'provider'=>'lenders'
+        ]
     ],
 
     /*
@@ -68,13 +76,21 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\User::class,
+            'model' => App\Models\User::class,
         ],
 
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
+        'borrowers' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Borrower::class,
+        ],
+        'lenders'=>[
+            'driver'=>'eloquent',
+            'model'=> App\Models\Lender::class,
+        ]
     ],
 
     /*
