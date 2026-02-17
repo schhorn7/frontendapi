@@ -117,9 +117,9 @@ class LenderApi extends Controller
             'balance'=>10000,
             'LenderID'=>$user->id,
         ]);
-        $lender = Lender::where('email', $request->email)->first();
-        $otp = $user->otp;
-        Mail::to($lender->email)->send(new lenderMail($otp));
+        // $lender = Lender::where('email', $request->email)->first();
+        // $otp = $user->otp;
+        // Mail::to($lender->email)->send(new lenderMail($otp));
     $token = $user->createToken('api-token')->plainTextToken;
 
     return response()->json([

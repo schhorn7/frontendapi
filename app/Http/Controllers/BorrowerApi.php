@@ -198,12 +198,12 @@ class BorrowerApi extends Controller
                 ]);
                 BorrowerBalance::create([
                     'borrowerID'=> $user->id,
-                    'balance' => 0,
+                    'balance' => 1000,
 
                 ]);
-                $borrower = Borrower::where('email', $request->email)->first();
-                $otp = $borrower->otp;
-                Mail::to($borrower->email)->send(new BorrowerMail($otp));
+                // $borrower = Borrower::where('email', $request->email)->first();
+                // $otp = $borrower->otp;
+                // Mail::to($borrower->email)->send(new BorrowerMail($otp));
             $token = $user->createToken('api-token')->plainTextToken;
 
             return response()->json([
