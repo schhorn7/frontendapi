@@ -13,7 +13,7 @@ return new class extends Migration
     {
 
         Schema::create('loan_requests', function (Blueprint $table) {
-            $table->id('request_id');
+            $table->id('id');
             // $table->foreignId('borrower_id')->constrained()->onDelete('cascade');
             // $table->string('request_duration');
             // $table->double('request_amount');

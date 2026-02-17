@@ -47,7 +47,7 @@ class BorrowerSeeder extends Seeder
             ]);
 
             $loan_request = request_loan::create ([
-                'request_id' => fake()->numberBetween(0,10),
+                
                 'request_amount' => 1000,
                 'request_duration'=> 30,
                 'request_reason' => 'car repair',

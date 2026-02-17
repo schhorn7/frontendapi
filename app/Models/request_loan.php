@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class request_loan extends Model
 {
     protected $table = 'loan_requests';
-    protected $id= 'request_id';
+    protected $id= 'id';
     use HasFactory;
 
     protected $fillable = [
-        'request_id',
+        
         'request_duration',
         'request_reason',
         'request_amount',

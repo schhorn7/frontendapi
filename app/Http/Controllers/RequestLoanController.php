@@ -147,7 +147,7 @@ class RequestLoanController extends Controller
     public function show(Request $request): JsonResponse
     {
         $loanId=$request->loanID;
-        $loan = request_loan::where('request_id', $loanId)->first();
+        $loan = request_loan::where('id', $loanId)->first();
 
         if (!$loan) {
             return response()->json(['error' => 'Loan not found.'], 404);
@@ -195,13 +195,13 @@ public function update(Request $request, $loanID): JsonResponse
         'request_borrowerID' => 'required|numeric',
         'interest_rate' => 'sometimes|numeric' // Optional field
     ]);
-    $loan = request_loan::where('request_id', $loanID)->first();
+    $loan = request_loan::where('id', $loanID)->first();
     if (!$loan) {
         return response()->json(['error' => 'Loan not found.'], 404);
     }
 
     // ✅ Update loan with validated data
-    DB::table('request_loan')->where('request_id', $loanID)->update([
+    DB::table('request_loan')->where('id', $loanID)->update([
         'request_duration' => $validated['request_duration'],
         'request_reason' => $validated['request_reason'],
         'request_amount' => $validated['request_amount'],
@@ -214,7 +214,7 @@ public function update(Request $request, $loanID): JsonResponse
     ]);
 
     // Refresh the loan instance
-    $loan = request_loan::where('request_id', $loanID)->first();
+    $loan = request_loan::where('id', $loanID)->first();
 
     return response()->json([
         'msg' => 'Loan updated successfully',
