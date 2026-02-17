@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Borrower;
 use App\Models\BorrowerBalance;
+use App\Models\Loan;
 use App\Models\request_loan;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -45,7 +46,7 @@ class BorrowerSeeder extends Seeder
                 'updated_at' => now(),
             ]);
 
-            request_loan::create ([
+            $loan_request = request_loan::create ([
                 'request_amount' => 1000,
                 'request_duration'=> 30,
                 'request_reason' => 'car repair',
@@ -55,6 +56,17 @@ class BorrowerSeeder extends Seeder
                 'created_at'=> now(),
                 'updated_at' => now(),
                 'BorrowerID' => $borrower->id,
+            ]);
+
+            Loan::create([
+                'BorrowerID' => $borrower->id,
+                'request_id' => $loan_request->id,
+                'request_duration' => 30,
+                'request_reason'=> 'car repair',
+                'request_amount' => 1000,
+                'interest_rate' => 5,
+                'total' => 1050,
+                'status' => 'Active',
             ]);
         }
     }
