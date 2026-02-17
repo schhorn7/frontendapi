@@ -21,7 +21,7 @@ class LenderSeeder extends Seeder
                 'status' => 'Active',
                 'approval_status' => 'Approved',
                 'country' => 'Cambodia',
-                'Province' => 'Takoe',
+                'province' => 'Takoe',
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);
