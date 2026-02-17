@@ -22,6 +22,7 @@ class Lender extends Authenticatable
         // 'credit_score',
         // 'document',
         'status',
+        'Province',
     ];
 
     protected $hidden = [
